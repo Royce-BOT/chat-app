@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ LOGIN SCREEN ============ -->
+  <div id="login-screen" class="screen">
+    <form id="login-form" class="card">
+      <h1>Join the Chat</h1>
+      <input id="username-input" type="text" placeholder="Username"
+             maxlength="20" autocomplete="off" required>
+      <select id="room-select">
+        <option value="general">#general</option>
+        <option value="games">#games</option>
+        <option value="music">#music</option>
+      </select>
+      <button type="submit">Join</button>
+      <p id="login-error" class="error" role="alert"></p>
+    </form>
+  </div>
+
+  <!-- ============ CHAT SCREEN ============ -->
+  <div id="chat-screen" class="screen hidden">
+    <header>
+      <h1 id="room-title">#general</h1>
+      <nav id="room-tabs">
+        <button type="button" data-room="general" class="active">#general</button>
+        <button type="button" data-room="games">#games</button>
+        <button type="button" data-room="music">#music</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="messages" aria-live="polite"></section>
+      <aside>
+        <h2>Online</h2>
+        <ul id="user-list"></ul>
+      </aside>
+    </main>
+
+    <footer>
+      <p id="typing-indicator"></p>
+      <form id="message-form">
+        <input id="message-input" type="text" placeholder="Type a message..."
+               maxlength="500" autocomplete="off">
+        <button type="submit">Send</button>
+      </form>
+    </footer>
+  </div>
+
+  <!-- Socket.IO serves this file automatically; our code loads after it -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
