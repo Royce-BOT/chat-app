@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const PORT = 3000;
 
 // ---------- STATE (module scope: one shared copy for every connection) ----------
-const rooms = ['general', 'games', 'music']; // 3+ rooms
+const rooms = ['general', 'games', 'music', 'coding']; // 4+ rooms
 const users = new Map();   // socket.id -> { username, room }
 const history = new Map(); // room -> [ msg, msg, ... ] capped at 30
 const HISTORY_LIMIT = 30;

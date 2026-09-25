@@ -1,6 +1,6 @@
 CHAT APP - FINAL PROJECT
 ========================
-Name(s): <your name(s) here>
+Name: John Royce D. Macaraig
 
 HOW TO RUN
 ----------
