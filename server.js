@@ -16,8 +16,8 @@ const PORT = 3000;
 // ---------- STATE (module scope: one shared copy for every connection) ----------
 const rooms = ['general', 'games', 'music', 'coding']; // 4+ rooms
 const users = new Map();   // socket.id -> { username, room }
-const history = new Map(); // room -> [ msg, msg, ... ] capped at 30
-const HISTORY_LIMIT = 30;
+const history = new Map(); // room -> [ msg, msg, ... ] capped at 100
+const HISTORY_LIMIT = 100;
 
 let messageCounter = 0;
 function nextMessageId() {
@@ -29,7 +29,7 @@ function now() {
   return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
-// Save a message into a room's history, keeping only the last 30
+// Save a message into a room's history, keeping only the last 100
 function remember(room, msg) {
   if (!history.has(room)) history.set(room, []);
   const list = history.get(room);
